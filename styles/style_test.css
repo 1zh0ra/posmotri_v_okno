@@ -1,0 +1,22 @@
+.search-form__pseudo-checkbox {
+  position: relative;
+  width: 19px;
+  height: 19px;
+}
+.search-form__pseudo-checkbox::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 19px;
+  height: 19px;
+  border: 1px solid black;
+}
+.search-form__pseudo-checkbox input[type="checkbox"] {
+    display: none;
+}
+.search-form__pseudo-checkbox input[type="checkbox"]:checked + span::before {
+  width: 18px;
+  height: 18px;
+  background-color: black;
+}
