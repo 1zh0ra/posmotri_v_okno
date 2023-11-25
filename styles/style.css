@@ -63,11 +63,6 @@ a {
   outline: none;
 }
 
-a:focus {
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
 a:focus-visible {
   outline: 1px solid #fff;
 }
@@ -85,6 +80,13 @@ a:focus-visible {
   align-items: flex-end;
   width: 100%;
   gap: 40px;
+  font-family: Fira Sans Condensed, sans-serif;
+}
+
+.result__video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .result__video-container {
@@ -94,16 +96,12 @@ a:focus-visible {
   margin-bottom: 16px;
 }
 
-.result__video {
-  object-fit: cover;
-}
-
 .content__details {
   display: flex;
   flex-direction: column;
   gap: 26px;
-  width: 400px;
-  height: 534px;
+  min-width: 399px;
+  max-height: 534px;
 }
 
 .content__list {
@@ -113,31 +111,34 @@ a:focus-visible {
 
 .content__list-item {
   margin-bottom: 30px;
+  overflow: hidden; /*не смог найти другого решения, в пачке рекомендовали этот способ*/
 }
 
 .content__video-card {
   display: flex;
   justify-content: space-between;
   max-height: 103px;
-  width: 394px;
 }
 
 .content__video-card-thumbnail {
-  object-fit: fill;
-  width: 194px;
-  height: 100%;
+  object-fit: cover;
+  max-width: 194px;
+  max-height: 100%;
 }
 
-.content__video-card-description-container {
-  width: 100%;
-  width: fit-content;
-  height: 100%;
+.content__video-card-description {
+  color: #fff;
+  font-family: Fira Sans Condensed;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16.2px;
 }
 
 .button {
   border: 1px solid #fff;
   color: currentColor;
-  font-family: inherit;
+  font-family: Fira Sans Condensed, sans-serif;
   font-weight: 700;
   font-size: 18px;
   font-style: normal;
@@ -150,6 +151,10 @@ a:focus-visible {
   min-height: 34px;
   color: #fff;
   cursor: pointer;
+}
+
+.more-button {
+  width: 100%;
 }
 
 .button:active {
@@ -167,6 +172,15 @@ a:focus-visible {
 
 .button:focus-visible {
   outline: 1px solid #fff;
+}
+
+.content__video-card:hover {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.content__video-card:active {
+  background-color: #545050;
 }
 
 .search-form__textfield {
@@ -193,11 +207,14 @@ a:focus-visible {
 .search-form__label:has(:focus-visible) {
   outline: 1px solid #fff;
 }
+
 .search-form__pseudo-checkbox {
+  display: inline-block;
   width: 19px;
   height: 19px;
   margin-right: 5px;
-  border: 1px solid #fff;
+  background-color: inherit;
+  outline: 1px solid #fff;
   cursor: pointer;
 }
 
@@ -205,6 +222,10 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox {
   content: "";
   border: 1px solid #1b1919;
   background-color: white;
+}
+
+.search-form__pseudo-checkbox:focus {
+  border: 1px solid #fff;
 }
 
 .search-form__fieldset-title {
@@ -223,23 +244,13 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox {
 
 .search-form__label:hover .search-form__label-text {
   text-decoration: underline;
-  text-underline-offset: 3px;
+  text-underline-offset: 4px;
 }
 
 .search-form__checkbox-list {
   display: flex;
   gap: 15px;
   margin-bottom: 5px;
-}
-
-.more-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 34px;
-  color: #fff;
-  cursor: pointer;
 }
 
 .title {
@@ -257,6 +268,8 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox {
 }
 
 .content__card-link {
+  /* width: 100%;
+  height: 100%; */
   display: block;
   color: #fff;
   text-decoration: none;
@@ -264,6 +277,7 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox {
 }
 
 .content__video-card-title {
+  font-family: Oswald;
   padding-bottom: 6px;
   color: #fff;
   font-weight: 700;
@@ -272,6 +286,9 @@ input[type="checkbox"]:checked + .search-form__pseudo-checkbox {
   line-height: 100%;
   text-transform: uppercase;
   white-space: nowrap;
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .visually-hidden {
